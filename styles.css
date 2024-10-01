@@ -1,0 +1,420 @@
+/* Define CSS variables for primary colors used throughout the site */
+:root {
+  --primary-color: #356aff;
+  --bg-color: #f5f5f5;
+  --light-bg-color: #fff;
+  --text-color: #111116;
+  --light-text-color: #cdccd1;
+  --primary-text-color: #fff;
+}
+
+/* Customize the width of the scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border: solid #111116;
+  margin-bottom: 20px;
+  padding: 15px 30px;
+  margin: 0%;
+  position: absolute;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: rgba(126, 125, 207, 0.277);
+  border-radius: 30px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-color);
+}
+
+/* Customize the appearance of the scrollbar track */
+::-webkit-scrollbar-track {
+  border-radius: 30px;
+  background: #f1f1f1;
+}
+
+/* Customize the appearance of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background: var(--primary-color);
+}
+
+/* Change scrollbar thumb color when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-color);
+}
+
+/* Apply universal styles to reset margin, padding, and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Style the body with minimum height and center alignment */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* Dark mode styles for the body */
+body.dark {
+  --bg-color: #111116;
+  --light-bg-color: #1c1b20;
+  --text-color: #fff;
+  --light-text-color: #58575c;
+}
+
+/* Container element styles for layout and spacing */
+.container {
+  position: relative;
+  width: 1200px;
+  padding: 0 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Card component styles within the container */
+.container .card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: var(--light-bg-color);
+}
+
+/* Flexbox alignment for 'from' and 'to' sections in the card */
+.container .card .from,
+.container .card .to {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Add margin to the 'from' section */
+.container .card .from {
+  margin-right: 20px;
+}
+
+/* Add margin to the 'to' section */
+.container .card .to {
+  margin-left: 20px;
+}
+
+/* Style for the heading text inside the card */
+.container .card .heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--light-text-color);
+  white-space: nowrap;
+}
+
+/* Dropdown container styling for positioning and margin */
+.dropdown-container {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Dropdown toggle button styling */
+.dropdown-container .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 30px;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* Flex styling for the dropdown toggle button text */
+.dropdown-container .dropdown-toggle span {
+  flex: 1;
+  margin-left: 10px;
+}
+
+/* Icon styling inside the dropdown toggle */
+.dropdown-container .dropdown-toggle ion-icon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Active state for the dropdown, modifies border-radius */
+.dropdown-container.active .dropdown-toggle {
+  border-radius: 20px 20px 0 0;
+}
+
+/* Rotate the icon when the dropdown is active */
+.dropdown-container.active .dropdown-toggle ion-icon:last-child {
+  transform: rotate(180deg);
+}
+
+/* Styling for the dropdown menu and its positioning */
+.dropdown-container .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  display: none;
+  padding: 20px;
+  z-index: 1;
+  list-style: none;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  transition: all 1s;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Hide the scrollbar inside the dropdown menu */
+.dropdown-container .dropdown-menu::-webkit-scrollbar {
+  display: none;
+}
+
+/* Display the dropdown menu when active */
+.dropdown-container.active .dropdown-menu {
+  display: flex;
+}
+
+/* List item styling inside the dropdown menu */
+.dropdown-container .dropdown-menu li {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--light-bg-color);
+  transition: all 0.3s ease;
+}
+
+/* Change background color on hover inside the dropdown */
+.dropdown-container .dropdown-menu li:hover {
+  background-color: var(--light-bg-color);
+}
+
+/* Styling for the active item inside the dropdown */
+.dropdown-container .dropdown-menu li.active {
+  color: var(--primary-text-color);
+  background-color: var(--primary-color);
+}
+
+/* Text area container styling */
+.container .text-area {
+  position: relative;
+}
+
+/* Textarea styling for user input */
+.container textarea {
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Character counter styling within the text area */
+.container .text-area .chars {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: var(--light-text-color);
+}
+
+/* Center alignment container */
+.container .center {
+  position: relative;
+}
+
+/* Swap button positioning and styling */
+.swap-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid var(--bg-color);
+  transition: all 0.3s ease;
+  color: var(--primary-text-color);
+  background-color: var(--primary-color);
+}
+
+/* Icon styling inside the swap button */
+.swap-position ion-icon {
+  font-size: 25px;
+}
+
+/* Enlarge the swap button on hover */
+.swap-position:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Dark mode toggle button positioning */
+.mode {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+/* Toggle button styling */
+.toggle {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Toggle track (the switch background) styling */
+.toggle-track {
+  width: 24px;
+  height: 50px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3px 0;
+  justify-content: space-between;
+  border: 1px solid var(--light-text-color);
+  background-color: var(--light-bg-color);
+  transition: all 0.2s ease;
+}
+
+/* Hide the checkbox (input) element inside the toggle */
+.toggle-checkbox {
+  display: none;
+}
+
+/* Toggle thumb (the switch) styling */
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  transition: all 0.5s;
+}
+
+.elgato,
+.title {
+  opacity: 1; /* Default opacity */
+  transition: opacity 0.5s ease; /* Smooth transition */
+}
+.toggleButton {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.toggleButton:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
+/* Move the toggle thumb down when the switch is checked */
+.toggle input:checked ~ .toggle-thumb {
+  transform: translateY(25px);
+}
+
+/* Icon styling inside the toggle switch */
+.toggle img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Media query for responsive design on small screens */
+@media (max-width: 800px) {
+  /* Adjust container for mobile view */
+  .container {
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  /* Make the card full width on smaller screens */
+  .container .card {
+    width: 100%;
+  }
+
+  /* Remove margin for 'from' and 'to' sections */
+  .container .card .from {
+    margin-right: 0;
+  }
+
+  .container .card .to {
+    margin-left: 0;
+  }
+
+  /* Stack the 'from' and 'to' sections vertically */
+  .container .card .from,
+  .container .card .to {
+    flex-direction: column;
+  }
+
+  /* Adjust the swap button position to the center */
+  .swap-position {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Enlarge the swap button on hover in mobile view */
+  .swap-position:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  /* Rotate the icon in the swap button for mobile view */
+  .swap-position ion-icon {
+    transform: rotate(90deg);
+  }
+
+  .probtn {
+    opacity: 0;
+  }
+
+  .elgato,
+  .title {
+    opacity: 0;
+  }
+}
