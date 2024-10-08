@@ -17,7 +17,7 @@
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
-  border: solid #111116;
+  border: solid var(--text-color);
   margin-bottom: 20px;
   padding: 15px 30px;
   margin: 0%;
@@ -67,10 +67,10 @@ body {
 }
 
 /* Dark mode styles for the body */
-body.dark {
+.dark {
   --bg-color: #111116;
   --light-bg-color: #1c1b20;
-  --text-color: #fff;
+  --text-color: #ffffff;
   --light-text-color: #58575c;
 }
 
@@ -133,18 +133,21 @@ body.dark {
   background-color: var(--bg-color);
   cursor: pointer;
   transition: all 0.3s;
+  border: solid var(--text-color) 1px;
 }
 
 /* Flex styling for the dropdown toggle button text */
 .dropdown-container .dropdown-toggle span {
   flex: 1;
   margin-left: 10px;
+  color: var(--text-color);
 }
 
 /* Icon styling inside the dropdown toggle */
 .dropdown-container .dropdown-toggle ion-icon {
   font-size: 20px;
   transition: transform 0.3s ease;
+  color: var(--text-color);
 }
 
 /* Active state for the dropdown, modifies border-radius */
@@ -173,6 +176,7 @@ body.dark {
   background-color: var(--bg-color);
   transition: all 1s;
   border-radius: 0 0 20px 20px;
+  border: solid var(--text-color) 1px;
 }
 
 /* Hide the scrollbar inside the dropdown menu */
@@ -193,6 +197,7 @@ body.dark {
   margin-bottom: 5px;
   border-bottom: 1px solid var(--light-bg-color);
   transition: all 0.3s ease;
+  border: solid var(--text-color) 1px;
 }
 
 /* Change background color on hover inside the dropdown */

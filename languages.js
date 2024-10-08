@@ -157,12 +157,7 @@ const languages = [
     native: "Kreyòl ayisyen",
     code: "ht",
   },
-  {
-    no: "26",
-    name: "Hebrew",
-    native: "עברית",
-    code: "iw",
-  },
+  
   {
     no: "27",
     name: "Hindi",

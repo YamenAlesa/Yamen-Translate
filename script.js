@@ -53,15 +53,24 @@ document.addEventListener("click", (e) => {
   });
 });
 
-// Add a change event listener for input text field
-inputTextElem.addEventListener("change", (e) => {
+// Add a real-time input event listener for the input text field
+inputTextElem.addEventListener("input", (e) => {
   // Limit the input text to 5000 characters
   if (inputTextElem.value.length > 5000) {
     inputTextElem.value = inputTextElem.value.slice(0, 5000);
   }
 
-  // Trigger translation when the text changes
-  translate();
+  // Trigger translation immediately as the user types
+  const timer = setTimeout(() => {
+    translate();
+  }, 500);
+
+  // Update the character count as the user types
+  inputChars.innerHTML = inputTextElem.value.length;
+
+  return () => {
+    clearTimeout(timer);
+  };
 });
 
 // Get the element that will display the character count
@@ -147,16 +156,34 @@ darkModeCheckbox.addEventListener("change", () => {
   document.body.classList.toggle("dark");
 });
 
-const button = document.getElementById('toggleButton');
-const elgatoElements = document.querySelectorAll('.elgato, .title');
+// Select the copy button and the output text element
+const copyBtn = document.getElementById("copyButton");
 
-button.addEventListener('click', () => {
-    elgatoElements.forEach(element => {
-        // Toggle opacity between 0 and 1
-        if (element.style.opacity === '0') {
-            element.style.opacity = '1'; // Set to full opacity
-        } else {
-            element.style.opacity = '0'; // Set to no opacity
-        }
+// Add an event listener to the copy button
+copyBtn.addEventListener("click", () => {
+  // Copy the translated text from the outputTextElem to the clipboard
+  navigator.clipboard
+    .writeText(outputTextElem.value)
+    .then(() => {
+      // Optional: Notify the user that the text was copied
+      alert("Translation copied to clipboard!");
+    })
+    .catch((error) => {
+      // Handle any errors that may occur during the copy operation
+      console.error("Failed to copy text: ", error);
     });
+});
+
+const button = document.getElementById("toggleButton");
+const elgatoElements = document.querySelectorAll(".elgato, .title");
+
+button.addEventListener("click", () => {
+  elgatoElements.forEach((element) => {
+    // Toggle opacity between 0 and 1
+    if (element.style.opacity === "0") {
+      element.style.opacity = "1"; // Set to full opacity
+    } else {
+      element.style.opacity = "0"; // Set to no opacity
+    }
+  });
 });
